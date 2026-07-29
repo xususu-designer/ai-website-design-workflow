@@ -1,12 +1,13 @@
 # AI Website Design Workflow
 
-一个用于 Codex 的官网设计流程 skill。它把模糊输入推进为可验证的官网设计流程，并覆盖从 AI 方向探索、公开官网正文检查、设计师 Figma 深化交接，到最终网页实现和 QA 的完整闭环。
+一个用于 Codex 的官网设计流程 skill。它可以先通过逐轮问答帮助用户明确要做什么网站，再把模糊输入推进为可验证的官网设计流程，并覆盖从 AI 方向探索、公开官网正文检查、设计师 Figma 深化交接，到最终网页实现和 QA 的完整闭环。
 
 ## 适用场景
 
 当你需要做这些任务时使用：
 
 - 从模糊想法、访谈记录、文档或提示词中整理官网 Brief
+- 在目标、用户或页面结构尚不明确时，由 AI 每轮提出 1-3 个问题并逐步收束方向
 - 为企业官网、产品首页、品牌首页、作品集 case page 或营销页建立信息架构
 - 做竞品 / 行业 / 视觉参考调研，并沉淀设计 thesis
 - 生成多个视觉方向 prompt，并验证 AI 输出是否可继续深化
@@ -16,6 +17,9 @@
 - 对 HTML / Figma / no-code 预览进行视觉、响应式、内容、命名和交互 QA
 
 ## Workflow
+
+0. Guided intake Q&A  
+   当用户还不确定要做什么网站时，通过逐轮问答确认目标、受众、约束和待验证假设。
 
 1. Input triage  
    判断页面类型、目标用户、页面任务、风险等级和推荐路线。
@@ -68,6 +72,7 @@
         ├── design-deepening-template.md
         ├── designer-deepening-handoff.md
         ├── figma-to-web-implementation.md
+        ├── guided-intake-qa.md
         ├── input-triage-template.md
         ├── prototype-qa-checklist.md
         ├── public-website-content-pass.md
@@ -88,6 +93,10 @@ cp -R ai-website-design-workflow ~/.codex/skills/
 Then restart or refresh Codex so the skill can be discovered.
 
 ## Example Prompts
+
+```text
+Use $ai-website-design-workflow in guided Q&A mode. I only have rough product materials and do not yet know the primary audience or homepage structure. Ask me one to three questions at a time and help me clarify the website.
+```
 
 ```text
 Use $ai-website-design-workflow to turn this rough company positioning into a homepage brief, research thesis, visual directions, and a Figma handoff plan.
@@ -121,6 +130,34 @@ At minimum, verify:
 - no project-specific demo output is included in the skill folder
 
 ## Upload To GitHub
+
+### Update an existing repository
+
+The safest method is to clone the existing repository, replace the changed files, and push:
+
+```bash
+git clone <existing-repository-url>
+cd ai-website-design-workflow
+
+# Replace README.md and the files under ai-website-design-workflow/ with this package.
+
+git add .
+git commit -m "Add guided Q&A intake mode"
+git push origin main
+```
+
+If you use GitHub's web interface, upload these four changed files to their existing paths and commit the changes:
+
+```text
+README.md
+ai-website-design-workflow/SKILL.md
+ai-website-design-workflow/agents/openai.yaml
+ai-website-design-workflow/references/guided-intake-qa.md
+```
+
+GitHub will create the new reference file and replace the three existing files. Do not delete and recreate the repository.
+
+### Create a new repository
 
 From this repository root:
 
