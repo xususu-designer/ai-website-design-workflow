@@ -1,7 +1,7 @@
 interface:
   display_name: "AI Website Design Workflow"
-  short_description: "Move from rough website inputs to design handoff and web build"
-  default_prompt: "Use $ai-website-design-workflow to triage rough website inputs, create a brief, define a design thesis, sample AI outputs, validate paths, prepare Figma design handoff, implement from final design, and QA the webpage."
+  short_description: "Clarify, design, prototype, and hand off a website"
+  default_prompt: "Use $ai-website-design-workflow in guided Q&A mode to help me clarify what website I need, then turn my answers into a brief, research thesis, visual direction, prototype, and handoff."
 
 policy:
   allow_implicit_invocation: true
