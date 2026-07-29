@@ -1,7 +1,7 @@
 [README.md](https://github.com/user-attachments/files/30502329/README.md)
 # AI Website Design Workflow
 
-一个用于 Codex 的协作式官网设计 Skill。它不会在收到模糊需求后直接生成完整网站，而是通过多轮问答、可检查的竞品与视觉方案，以及必须由人确认的决策闸门，把不完整输入逐步推进为官网 Brief、设计方向、原型和交付物。
+一个用于 Codex 的协作式官网设计 Skill。在收到模糊需求后通过多轮问答、可检查的竞品与视觉方案，以及必须由人确认的决策闸门，把不完整输入逐步推进为官网 Brief、设计方向、原型和交付物。
 
 ## Core Idea
 
