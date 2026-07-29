@@ -1,3 +1,4 @@
+[README.md](https://github.com/user-attachments/files/30495694/README.md)
 # AI Website Design Workflow
 
 一个用于 Codex 的官网设计流程 skill。它可以先通过逐轮问答帮助用户明确要做什么网站，再把模糊输入推进为可验证的官网设计流程，并覆盖从 AI 方向探索、公开官网正文检查、设计师 Figma 深化交接，到最终网页实现和 QA 的完整闭环。
