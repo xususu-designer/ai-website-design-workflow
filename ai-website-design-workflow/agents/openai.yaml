@@ -1,7 +1,7 @@
 interface:
   display_name: "AI Website Design Workflow"
-  short_description: "Clarify, design, prototype, and hand off a website"
-  default_prompt: "Use $ai-website-design-workflow in guided Q&A mode to help me clarify what website I need, then turn my answers into a brief, research thesis, visual direction, prototype, and handoff."
+  short_description: "Co-decide, design, prototype, and hand off a website"
+  default_prompt: "Use $ai-website-design-workflow in collaborative mode: guide me through several short decision rounds, show me competitor websites and visual alternatives, and wait for my choices before producing the brief, direction, prototype, and handoff."
 
 policy:
   allow_implicit_invocation: true
