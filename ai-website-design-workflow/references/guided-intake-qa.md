@@ -1,4 +1,4 @@
-
+[guided-intake-qa.md](https://github.com/user-attachments/files/30501965/guided-intake-qa.md)
 # Guided Website Intake Q&A
 
 Use this reference when the user does not yet know exactly what website they need, provides rough or incomplete inputs, or wants the AI to guide the project.
@@ -67,6 +67,8 @@ If a missing item does not block research, record an assumption and continue.
 
 Use the confirmed brief to research the relevant industry, competitors, adjacent categories, and audience expectations. Return conclusions rather than a link dump.
 
+Read `human-decision-gates.md` and stop at Gate 2. Research conclusions must be accompanied by three to five inspectable competitor/reference cards with direct official links and screenshots when available.
+
 Output:
 
 - observed industry expression patterns
@@ -78,6 +80,7 @@ Output:
 - direction and implementation risks
 - evidence sources and confidence
 - questions exposed by the research
+- user preference among the references
 
 Separate:
 
@@ -86,7 +89,7 @@ Separate:
 - design judgment
 - unresolved assumption
 
-End by asking the user which conclusions are accurate, inaccurate, useful, or irrelevant.
+End by asking which one or two references feel closest, which should be rejected, and whether the user is responding to content structure, visual language, or interaction. Do not finalize the design thesis until the user answers or explicitly delegates the choice.
 
 ## Phase 3: Human Calibration
 
@@ -133,4 +136,5 @@ Use this thesis structure:
 - Stop asking when the minimum intake gate is met.
 - Do not keep questioning merely to fill every template field.
 - Do not start visual generation before the user has reviewed the research conclusions and design thesis.
+- Do not start visual generation before the user has selected, rejected, or explicitly declined the presented references.
 - Do not hide unresolved high-risk claims inside polished website copy.
