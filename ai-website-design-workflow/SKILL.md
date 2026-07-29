@@ -1,15 +1,30 @@
+[SKILL.md](https://github.com/user-attachments/files/30495549/SKILL.md)
 ---
 name: ai-website-design-workflow
-description: Use when designing, auditing, validating, prototyping, handing off, or implementing a website, landing page, product homepage, brand homepage, portfolio case page, campaign page, or marketing site from incomplete inputs, no mature PRD, unclear information architecture, weak research, uncertain visual direction, unclear AI implementation path, or a final Figma/mockup-to-web build. Guides Codex through input triage, website brief creation, research synthesis, design thesis definition, visual direction prompts, AI output sampling, implementation path validation, public website copy, designer/Figma handoff, Figma-to-web implementation, prototype QA, and workflow retrospective.
+description: Use when designing, auditing, validating, prototyping, handing off, or implementing a website, landing page, product homepage, brand homepage, portfolio case page, campaign page, or marketing site, especially when the user is unsure what website they need or has incomplete inputs, no mature PRD, unclear information architecture, weak research, uncertain visual direction, unclear AI implementation path, or a final Figma/mockup-to-web build. Uses adaptive guided Q&A to clarify the website task before moving through brief creation, research synthesis, design thesis definition, visual direction, AI output sampling, implementation path validation, public copy, designer/Figma handoff, Figma-to-web implementation, prototype QA, and workflow retrospective.
 ---
 
 # AI Website Design Workflow
 
 Use this skill to turn rough website inputs into a staged, evidence-aware design process. It is not an automatic website generator. AI expands breadth; the designer makes depth judgments and final decisions.
 
+## Mandatory Entry Gate
+
+Before selecting any operating mode, detect whether the user is unsure what website they need, asks to be guided, provides incomplete materials, or lacks a stable audience, page job, structure, or direction.
+
+If any condition applies:
+
+1. Read `references/guided-intake-qa.md` before responding.
+2. Enter Guided Q&A Mode. This mode overrides Real Project Mode and the Stage 0 triage output format until the minimum intake gate is met.
+3. Make the first response use only `Confirmed / Assumed / Unknown / Next questions`.
+4. Ask no more than three questions.
+5. Do not output a full triage report, risk report, timeline, recommended workflow, or promised deliverables before receiving the blocking answers.
+
 ## Core Rules
 
 - Separate **facts**, **assumptions**, **design judgments**, and **unknowns** in every stage.
+- When the user is unsure or inputs are incomplete, use adaptive guided Q&A. Ask no more than three high-value questions per round, skip questions already answered, and allow the user to say "I don't know."
+- In every Guided Q&A response, including the first, use the exact `Confirmed / Assumed / Unknown / Next questions` structure from `references/guided-intake-qa.md`.
 - Ask only for inputs that block the current stage. Otherwise make a clearly labeled assumption and continue.
 - Keep each decision traceable to user input, source evidence, design thesis, visual constraints, or prototype observations.
 - Do not let AI-generated visuals override the brief, thesis, audience, or content priority.
@@ -22,6 +37,18 @@ Use this skill to turn rough website inputs into a staged, evidence-aware design
 
 ## Operating Modes
 
+### Guided Q&A Mode
+
+Use `references/guided-intake-qa.md` when the user is unsure what website they need, gives only rough materials, has no mature PRD, or asks the AI to guide the process.
+
+- Start by interpreting all provided materials before asking questions.
+- Ask one to three questions per round; prioritize website type, audience, page job, offer, evidence, constraints, and delivery boundary.
+- Do not repeat answered questions or demand a complete questionnaire.
+- When the user cannot decide, offer two or three meaningful options with short tradeoffs.
+- Return the exact `Confirmed / Assumed / Unknown / Next questions` ledger in every response, including the first.
+- Run research only after the minimum intake gate is met. Return research conclusions for user correction before treating them as design inputs.
+- End guided intake by producing the website brief, research synthesis, design thesis, content priority, visual criteria, and unresolved-items list.
+
 ### Real Project Mode
 
 When the user asks to run the website process for a real project, proceed stage by stage. Stop after each stage with:
@@ -32,6 +59,7 @@ When the user asks to run the website process for a real project, proceed stage 
 - `next input needed`
 
 Continue only when the next stage is not blocked or the user asks you to proceed.
+If the real-project inputs are incomplete, begin in Guided Q&A Mode and switch into the staged workflow after the intake gate is met.
 
 ### Single Stage Mode
 
@@ -45,7 +73,7 @@ When the user asks to validate, audit, test, or improve this workflow as a reusa
 
 ### 0. Triage The Website Task
 
-Use `references/input-triage-template.md` when the project type, audience, page job, risk level, or workflow route is unclear.
+Use `references/guided-intake-qa.md` first when the user needs conversational guidance. Use `references/input-triage-template.md` to structure the resulting project type, audience, page job, risk level, and workflow route.
 
 Output:
 
@@ -59,7 +87,7 @@ Output:
 
 ### 1. Create Website Brief
 
-Use `references/brief-template.md` when inputs are incomplete, scattered, stakeholder-written, AI-generated, or missing a mature PRD.
+Use `references/brief-template.md` after guided intake when inputs are incomplete, scattered, stakeholder-written, AI-generated, or missing a mature PRD.
 
 Output:
 
