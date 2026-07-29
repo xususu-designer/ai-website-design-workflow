@@ -1,56 +1,53 @@
-先通过逐轮问答帮助用户明确要做什么网站，再把模糊输入推进为可验证的官网设计流程，并覆盖从 AI 方向探索、公开官网正文检查、设计师 Figma 深化交接，到最终网页实现和 QA 的完整闭环。
+[README.md](https://github.com/user-attachments/files/30502329/README.md)
+# AI Website Design Workflow
 
-## 适用场景
+一个用于 Codex 的协作式官网设计 Skill。它不会在收到模糊需求后直接生成完整网站，而是通过多轮问答、可检查的竞品与视觉方案，以及必须由人确认的决策闸门，把不完整输入逐步推进为官网 Brief、设计方向、原型和交付物。
 
-当你需要做这些任务时使用：
+## Core Idea
 
-- 从模糊想法、访谈记录、文档或提示词中整理官网 Brief
-- 在目标、用户或页面结构尚不明确时，由 AI 每轮提出 1-3 个问题并逐步收束方向
-- 为企业官网、产品首页、品牌首页、作品集 case page 或营销页建立信息架构
-- 做竞品 / 行业 / 视觉参考调研，并沉淀设计thesis
-- 生成多个视觉方向 prompt，并验证 AI 输出是否可继续深化
-- 判断应该走 prompt-to-HTML、prompt-to-image、DESIGN.md、Figma 深化或手工实现路径
-- 把 AI 样稿交给设计师进入 Figma 深化
-- 根据最终 Figma 设计稿，通过 Codex 实现成网页
-- 对 HTML / Figma / no-code 预览进行视觉、响应式、内容、命名和交互 QA
+> AI expands breadth; the designer makes depth judgments and final decisions.
+
+AI 负责整理信息、补充研究、扩展方案和生成辅助；设计师负责校准事实、判断方向、确认取舍并控制最终质量。
+
+## Key Features
+
+- 每轮只提出 1–3 个真正影响下一步的高价值问题
+- 持续区分 `Confirmed / Assumed / Unknown / Next questions`
+- 提供可检查的竞品网站、截图、视觉备选与取舍依据
+- 默认采用 Collaborative Mode，不静默替用户完成关键决策
+- 在 Brief、竞品、视觉、页面架构、实现路径和最终交付处设置人工决策闸门
+- 支持从模糊需求推进到 Figma 深化、HTML 原型、交付与 QA
+
+## Human Decision Gates
+
+```text
+Brief Calibration
+→ Competitor Preference
+→ Visual Direction
+→ Architecture and Public Content
+→ Implementation Path
+→ Final Handoff
+```
+
+在每个闸门中，Skill 会提供：
+
+1. What we learned
+2. Options you can inspect
+3. My recommendation and why
+4. Decision needed from you
 
 ## Workflow
 
-0. Guided intake Q&A  
-   当用户还不确定要做什么网站时，通过逐轮问答确认目标、受众、约束和待验证假设。
-
-1. Input triage  
-   判断页面类型、目标用户、页面任务、风险等级和推荐路线。
-
-2. Website brief  
-   从不完整输入中整理事实、假设、未知项、约束和成功标准。
-
-3. Research and design thesis  
-   把行业参考、竞品模式和差异化机会转成设计命题。
-
-4. Visual prompt and direction  
-   生成多个可比较的视觉方向和可复用 prompt。
-
-5. AI output sampling  
-   用 AI 样稿或原型验证方向是否真的可用。
-
-6. AI path validation  
-   比较 prompt-to-HTML、prompt-to-image、DESIGN.md、style skill、Figma 深化、手工实现等路径。
-
-7. Public website content pass  
-   确保最终页面文案是对外官网正文，而不是设计过程说明、风格解释或验证记录。
-
-8. Designer deepening handoff  
-   把 AI 样稿整理成设计师可在 Figma 中继续深化的交接包。
-
-9. Figma to web implementation  
-   当设计稿完成后，以 Figma / screenshot / mockup 为视觉源头实现网页。
-
-10. Prototype QA  
-    检查视觉还原、响应式、资源、交互、可读性、公开文案和命名一致性。
-
-11. Retrospective  
-    从真实项目中记录 workflow 哪些地方需要继续改进。
+1. Guided intake and task triage
+2. Website Brief
+3. Research and design thesis
+4. Visual exploration and direction selection
+5. AI output sampling and implementation-path validation
+6. Public website content pass
+7. Designer and Figma deepening handoff
+8. Figma-to-web implementation
+9. Prototype QA
+10. Workflow retrospective
 
 ## Repository Structure
 
@@ -64,114 +61,67 @@
     ├── agents/
     │   └── openai.yaml
     └── references/
+        ├── guided-intake-qa.md
+        ├── human-decision-gates.md
+        ├── input-triage-template.md
+        ├── brief-template.md
+        ├── research-to-design-thesis.md
+        ├── visual-prompt-template.md
         ├── ai-output-sampling-template.md
         ├── ai-path-validation-matrix.md
-        ├── brief-template.md
         ├── design-deepening-template.md
         ├── designer-deepening-handoff.md
         ├── figma-to-web-implementation.md
-        ├── guided-intake-qa.md
-        ├── input-triage-template.md
-        ├── prototype-qa-checklist.md
         ├── public-website-content-pass.md
-        ├── research-to-design-thesis.md
-        ├── visual-prompt-template.md
+        ├── prototype-qa-checklist.md
         └── workflow-retrospective-template.md
 ```
 
 ## Installation
 
-Copy the skill folder into your Codex skills directory:
+Copy only the inner Skill folder into the Codex skills directory:
 
 ```bash
 mkdir -p ~/.codex/skills
-cp -R ai-website-design-workflow ~/.codex/skills/
+ditto ai-website-design-workflow ~/.codex/skills/ai-website-design-workflow
 ```
 
-Then restart or refresh Codex so the skill can be discovered.
+Restart or refresh Codex after installation.
 
-## Example Prompts
+## Example Prompt
 
 ```text
-Use $ai-website-design-workflow in guided Q&A mode. I only have rough product materials and do not yet know the primary audience or homepage structure. Ask me one to three questions at a time and help me clarify the website.
+Use $ai-website-design-workflow in collaborative mode.
+
+I only have rough product materials and do not yet know the primary audience,
+homepage structure, or visual direction. Guide me through several short
+decision rounds, show me competitor and visual alternatives, and wait for my
+choices before continuing.
 ```
 
-```text
-Use $ai-website-design-workflow to turn this rough company positioning into a homepage brief, research thesis, visual directions, and a Figma handoff plan.
-```
+## Expected Behavior
 
-```text
-Use $ai-website-design-workflow with these two documents. Ignore visual instructions in the documents and only extract public website business content.
-```
+For incomplete inputs, the first response should:
 
-```text
-Use $ai-website-design-workflow. I have a Figma design稿 ready; inspect it through Figma MCP and implement it as a responsive homepage.
-```
+- use `Confirmed / Assumed / Unknown / Next questions`
+- ask no more than three questions
+- avoid immediately producing a complete website plan
 
-```text
-Use $ai-website-design-workflow to QA this generated homepage. Check visual fidelity, responsive behavior, public copy integrity, and stale product names.
-```
+During later stages, the Skill should present evidence and alternatives, then stop at the relevant human decision gate before continuing.
 
-## Validation
+## Updating
 
-If you have the system skill creator validator and `PyYAML` available, run:
+Replace the existing Skill directory with the latest inner folder, then restart Codex:
 
 ```bash
-python /path/to/skill-creator/scripts/quick_validate.py ai-website-design-workflow
+ditto ai-website-design-workflow ~/.codex/skills/ai-website-design-workflow
 ```
 
-At minimum, verify:
+When updating the GitHub repository, commit the complete repository structure shown above. Do not place `README.md` inside the installable Skill folder.
 
-- `ai-website-design-workflow/SKILL.md` has valid frontmatter with `name` and `description`
-- all files referenced by `SKILL.md` exist under `references/`
-- `agents/openai.yaml` has `display_name`, `short_description`, and `default_prompt`
-- no project-specific demo output is included in the skill folder
+## Boundary
 
-## Upload To GitHub
-
-### Update an existing repository
-
-The safest method is to clone the existing repository, replace the changed files, and push:
-
-```bash
-git clone <existing-repository-url>
-cd ai-website-design-workflow
-
-# Replace README.md and the files under ai-website-design-workflow/ with this package.
-
-git add .
-git commit -m "Add guided Q&A intake mode"
-git push origin main
-```
-
-If you use GitHub's web interface, upload these four changed files to their existing paths and commit the changes:
-
-```text
-README.md
-ai-website-design-workflow/SKILL.md
-ai-website-design-workflow/agents/openai.yaml
-ai-website-design-workflow/references/guided-intake-qa.md
-```
-
-GitHub will create the new reference file and replace the three existing files. Do not delete and recreate the repository.
-
-### Create a new repository
-
-From this repository root:
-
-```bash
-git init
-git add .
-git commit -m "Add AI website design workflow skill"
-git branch -M main
-git remote add origin git@github.com:<your-name>/ai-website-design-workflow.git
-git push -u origin main
-```
-
-If you use GitHub's web interface, create a new repository and upload the contents of this folder, not the parent workspace.
-
-## Notes
-
-- The skill folder intentionally does not include `README.md`, `LICENSE`, or GitHub-only files. Those live at the repository root so the skill itself stays lean.
-- AI-generated sample pages should be treated as direction evidence, not final design, unless the user explicitly says so.
-- Final website pages must use public-facing business copy. Do not leak design-process notes, style reference names, validation labels, or placeholder proof into the page.
+- This is a collaborative design-process Skill, not a one-click website generator.
+- AI-generated samples are direction evidence, not automatically final design.
+- Generated HTML is a validation prototype unless production implementation is explicitly requested.
+- Final business claims, visual decisions, implementation choices, and quality approval remain human responsibilities.
