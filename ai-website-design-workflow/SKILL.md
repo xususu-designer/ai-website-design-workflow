@@ -1,12 +1,24 @@
-[SKILL.md](https://github.com/user-attachments/files/30495549/SKILL.md)
+[SKILL.md](https://github.com/user-attachments/files/30501906/SKILL.md)
 ---
 name: ai-website-design-workflow
-description: Use when designing, auditing, validating, prototyping, handing off, or implementing a website, landing page, product homepage, brand homepage, portfolio case page, campaign page, or marketing site, especially when the user is unsure what website they need or has incomplete inputs, no mature PRD, unclear information architecture, weak research, uncertain visual direction, unclear AI implementation path, or a final Figma/mockup-to-web build. Uses adaptive guided Q&A to clarify the website task before moving through brief creation, research synthesis, design thesis definition, visual direction, AI output sampling, implementation path validation, public copy, designer/Figma handoff, Figma-to-web implementation, prototype QA, and workflow retrospective.
+description: Use when designing, auditing, validating, prototyping, handing off, or implementing a website, landing page, product homepage, brand homepage, portfolio case page, campaign page, or marketing site, especially when the user is unsure what website they need or has incomplete inputs, no mature PRD, unclear information architecture, weak research, uncertain visual direction, unclear AI implementation path, or a final Figma/mockup-to-web build. Uses adaptive multi-round Q&A and mandatory human decision gates to clarify the task, present competitor websites and visual alternatives for user judgment, then move through brief creation, research synthesis, design thesis, AI sampling, implementation-path validation, public copy, Figma handoff, implementation, and QA.
 ---
 
 # AI Website Design Workflow
 
 Use this skill to turn rough website inputs into a staged, evidence-aware design process. It is not an automatic website generator. AI expands breadth; the designer makes depth judgments and final decisions.
+
+## Mandatory Human Participation Contract
+
+Read `references/human-decision-gates.md` for every real website project.
+
+- Default to **Collaborative Mode**, not one-pass autonomous completion.
+- Ask one to three high-value questions per round and expect several rounds when decisions materially affect the result.
+- Present evidence and alternatives in a form the user can judge: direct links, screenshots when available, short comparison cards, tradeoffs, and a specific decision request.
+- Stop at mandatory gates for brief calibration, competitor preference, visual direction, page architecture/content, and implementation path.
+- Do not silently select a competitor-inspired direction or fuse visual routes on the user's behalf.
+- Continue non-binding preparation while waiting only when it does not pre-empt the user's decision.
+- Skip a gate only when the user explicitly requests autonomous execution, a one-pass dry run, or delegates that decision. Record the skipped gate and assumption.
 
 ## Mandatory Entry Gate
 
@@ -24,6 +36,7 @@ If any condition applies:
 
 - Separate **facts**, **assumptions**, **design judgments**, and **unknowns** in every stage.
 - When the user is unsure or inputs are incomplete, use adaptive guided Q&A. Ask no more than three high-value questions per round, skip questions already answered, and allow the user to say "I don't know."
+- More user participation is preferred over fewer rounds. The three-question limit applies per round, not to the whole project.
 - In every Guided Q&A response, including the first, use the exact `Confirmed / Assumed / Unknown / Next questions` structure from `references/guided-intake-qa.md`.
 - Ask only for inputs that block the current stage. Otherwise make a clearly labeled assumption and continue.
 - Keep each decision traceable to user input, source evidence, design thesis, visual constraints, or prototype observations.
@@ -56,9 +69,10 @@ When the user asks to run the website process for a real project, proceed stage 
 - stage output
 - assumptions made
 - risks
-- `next input needed`
+- evidence or alternatives the user can inspect
+- `decision needed from you`
 
-Continue only when the next stage is not blocked or the user asks you to proceed.
+Use the gates in `references/human-decision-gates.md`. Do not run the complete workflow in one pass unless the user explicitly requests autonomous completion.
 If the real-project inputs are incomplete, begin in Guided Q&A Mode and switch into the staged workflow after the intake gate is met.
 
 ### Single Stage Mode
@@ -107,12 +121,16 @@ Use `references/research-to-design-thesis.md` when the task needs competitor rev
 Output:
 
 - research evidence table
+- curated competitor cards with direct official links and screenshots when available
 - common patterns
 - differentiation opportunities
-- design thesis
+- candidate design theses
 - content priority
 - direction risks
 - source and assumption notes
+- explicit user choice: closest references, anti-references, and reasons
+
+Stop at Competitor Preference Gate. Do not finalize the design thesis until the user has responded or explicitly delegated the choice.
 
 ### 3. Generate Visual Prompts And Direction
 
@@ -124,10 +142,12 @@ Output:
 - moodboard search terms
 - meaningfully different visual directions
 - screening criteria
-- chosen direction or fusion route
+- user-selected direction or approved fusion route
 - visual constraint package
 - reusable generation prompt
 - negative prompt
+
+Stop at Visual Direction Gate after showing the alternatives. Ask the user what to keep, reject, or combine before sampling or deepening.
 
 ### 3.5 Sample AI Outputs
 
@@ -158,6 +178,8 @@ Output:
 - recommended path
 - decision record
 
+Show the tradeoffs and ask the user to confirm the recommended implementation path before committing to Figma deepening or production implementation.
+
 ### 5. Deepen The Design
 
 Use `references/design-deepening-template.md` after a path is chosen and the designer needs a stronger page structure, design system seed, hero definition, component inventory, motion plan, or decision log.
@@ -172,6 +194,8 @@ Output:
 - AI element prompts
 - motion rules
 - decision log
+
+Present the proposed architecture and hero/content hierarchy for approval before producing the final handoff package.
 
 ### 5.5 Create Publishable Website Copy
 
